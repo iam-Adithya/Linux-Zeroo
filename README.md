@@ -55,6 +55,78 @@ Server **stores session/state information** across requests.
 - Requires Redis, sticky sessions
 
 ---
+## 3. Load Balancer
+
+### Definition
+A **load balancer** distributes incoming traffic across multiple servers to ensure **high availability and reliability**.
+
+---
+
+### Types of Load Balancers
+
+#### 1. Layer 4 (Transport Layer)
+- Works on IP + Port (TCP/UDP)
+- Fast, no content inspection
+
+**Example**
+- AWS NLB
+
+---
+
+#### 2. Layer 7 (Application Layer)
+- Works on HTTP/HTTPS
+- Can route based on URL, headers, cookies
+
+**Example**
+- NGINX, AWS ALB
+
+---
+
+### Algorithms
+- Round Robin
+- Least Connections
+- IP Hash (sticky sessions)
+
+---
+
+### DevOps Relevance
+- Used in **high availability architectures**
+- Core in Kubernetes Services & Ingress
+
+---
+
+## 4. Reverse Proxy
+
+### Definition
+A **reverse proxy** sits in front of backend servers and forwards client requests to them.
+
+---
+
+### Key Functions
+- Load balancing
+- SSL termination
+- Caching
+- Security (hide backend servers)
+
+---
+
+### Flow
+Client → Reverse Proxy → Backend Servers
+
+---
+
+### Difference: Load Balancer vs Reverse Proxy
+
+| Feature          | Load Balancer            | Reverse Proxy          |
+|-----------------|--------------------------|------------------------|
+| Purpose         | Distribute traffic       | Forward requests       |
+| Layer           | L4 / L7                  | Mostly L7              |
+| Extra Features  | Basic routing            | SSL, caching, security |
+
+👉 In real-world:
+- **NGINX = Reverse proxy + Load balancer**
+
+---
 
 ## 3. IP Hash Load Balancing
 
